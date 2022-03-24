@@ -4,7 +4,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { VideojuegosComponent } from './components/videojuegos/videojuegos.component';
 
 const routes: Routes = [
-  { path: '', component: CarouselComponent},
+  { path: '', component: CarouselComponent },
   { path: 'videojuegos', component: VideojuegosComponent },
 ];
 
