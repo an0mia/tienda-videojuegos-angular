@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { VideojuegosComponent } from './components/videojuegos/videojuegos.component';
 import { FiltroComponent } from './components/videojuegos/filtro/filtro.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     VideojuegosComponent,
     FiltroComponent,
     CarouselComponent,
+    NosotrosComponent,
   ],
   imports: [
     BrowserModule,
