@@ -3,20 +3,20 @@ import { Categoria } from "./Categoria";
 export class Videojuego {
     id: number;
     nombre: string;
-    version: string;
+    plataforma: string;
     precio: number;
-    edad: number;
-    fecha: string;
+    calificacion: number;
+    anio: string;
     url: string;
     categoria: Categoria;
     
-    constructor(id: number, nombre: string, version: string, precio: number, edad: number, fecha: string, url: string, categoria: Categoria) {
+    constructor(id: number, nombre: string, plataforma: string, precio: number, calificacion: number, anio: string, url: string, categoria: Categoria) {
         this.id = id;
         this.nombre = nombre;
-        this.version = version;
+        this.plataforma = plataforma;
         this.precio =  precio;
-        this.edad = edad;
-        this.fecha = fecha;
+        this.calificacion = calificacion;
+        this.anio = anio;
         this.url = url;
         this.categoria = categoria;
     }

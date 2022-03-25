@@ -8,6 +8,7 @@ import { VideojuegosComponent } from './components/videojuegos/videojuegos.compo
 import { FiltroComponent } from './components/videojuegos/filtro/filtro.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
