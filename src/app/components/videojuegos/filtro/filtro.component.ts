@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-filtro',
@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltroComponent implements OnInit {
 
-  constructor() { }
+  @Input() todos: number;
+  @Input() aventura: number;
+  @Input() carreras: number;
+  @Input() deportes: number; 
+  @Input() disparos: number;
+  @Input() peleas: number;
 
-  ngOnInit(): void {
+  radioSeleccionado: string = "todos";
+
+  constructor() { 
+    this.todos = 0;
+    this.aventura = 0;
+    this.carreras = 0;
+    this.deportes = 0;
+    this.disparos = 0;
+    this.peleas = 0;
   }
+
+  ngOnInit(): void { }
 
 }

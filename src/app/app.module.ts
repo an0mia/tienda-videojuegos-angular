@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { VideojuegosComponent } from './components/videojuegos/videojuegos.component';
 import { FiltroComponent } from './components/videojuegos/filtro/filtro.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
