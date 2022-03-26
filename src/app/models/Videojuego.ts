@@ -4,10 +4,10 @@ export class Videojuego {
     id: number;
     nombre: string;
     plataforma: string;
-    precio: number;
     calificacion: number;
     anio: string;
     url: string;
+    precio: number;
     categoria: string;
     
     constructor(id: number, nombre: string, plataforma: string, precio: number, calificacion: number, anio: string, url: string, categoria: string) {

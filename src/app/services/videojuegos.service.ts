@@ -9,7 +9,7 @@ import { Videojuego } from '../models/Videojuego';
 })
 export class VideojuegosService {
 
-  urlEndPoint: string = 'http://localhost:8080/store/videojuegos';
+  urlEndPoint: string = 'http://localhost:8080/store/videojuego';
   private httpHeaders = new HttpHeaders({'Content-type' : 'application/json'});
 
   constructor(private http: HttpClient, private router: Router) { }
