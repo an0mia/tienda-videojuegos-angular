@@ -35,12 +35,14 @@ export class VideojuegosComponent implements OnInit {
   constructor(private videjuegosService: VideojuegosService) { }
 
   ngOnInit(): void {
+    this.cargarVideojuegos();
   }
 
   cargarVideojuegos(): void {
     this.videjuegosService.getVideojuegos().subscribe(
       (data) => {
-        this.videojuegos = data.videojuegos;
+        console.log(data);
+        this.videojuegos = data.videojuego;
       }
     );
   }
