@@ -2,11 +2,13 @@
     <div class="container mt-5">
         <app-filtro 
         [todos]="getTotalVidejuegos()"
+        [baile]="getTotalBaile()"
         [aventura]="getTotalAventura()"
         [carreras]="getTotalCarreras()"
         [deportes]="getTotalDeportes()"
         [disparos]="getTotalDisparos()"
-        [peleas]="getTotalPeleas()">
+        [peleas]="getTotalPeleas()"
+        (radioChange)="radioChangeReceiver($event)">
         </app-filtro>
         <!-- Videojuegos -->
         <div class="card">
@@ -15,31 +17,33 @@
             </div>
             <div class="card-body">
                 <ng-container *ngFor="let vj of listaVideojuegos">
-                    <div class="row d-flex justify-content-center mb-3">
-                        <div class="col-md-10">
-                            <div class="row p-2 bg-white border rounded">
-                                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="{{ vj.url }}"></div>
-                                <div class="col-md-6 mt-1">
-                                    <h5>{{ vj.nombre }}</h5>
-                                    <div class="d-flex flex-row">
-                                        <!-- Calificacion (*****) -->
-                                        <ng-container>
-                                            <div class="ratings mr-2"><i class="fa fa-star"></i></div>
-                                        </ng-container>
+                   <ng-container *ngIf="radioSeleccionado == 'Todos' || radioSeleccionado == vj.categoria">
+                        <div class="row d-flex justify-content-center mb-3">
+                            <div class="col-md-10">
+                                <div class="row p-2 bg-white border rounded">
+                                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="{{ vj.url }}"></div>
+                                    <div class="col-md-6 mt-1">
+                                        <h5>{{ vj.nombre }}</h5>
+                                        <div class="d-flex flex-row">
+                                            <!-- Calificacion (*****) -->
+                                            <ng-container>
+                                                <div class="ratings mr-2"><i class="fa fa-star"></i></div>
+                                            </ng-container>
+                                        </div>
+                                        <div class="mt-1 mb-1 spec-1"><span>{{ vj.plataforma }}</span><span class="dot"></span><span class="categoria">{{ vj.categoria }}</span></div>
+                                        <p class="text-justify text-truncate para mb-0">Lorem, ipsum dolor.</p>
                                     </div>
-                                    <div class="mt-1 mb-1 spec-1"><span>{{ vj.plataforma }}</span><span class="dot"></span><span class="categoria">Aventura</span></div>
-                                    <p class="text-justify text-truncate para mb-0">Lorem, ipsum dolor.</p>
-                                </div>
-                                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                    <div class="d-flex flex-row align-items-center">
-                                        <h4 class="mr-1">{{ vj.precio | currency   }}</h4>
+                                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <h4 class="mr-1">{{ vj.precio | currency   }}</h4>
+                                        </div>
+                                        <h6 class="text-success">Envio gratis</h6>
+                                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Detalles</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Agregar al carro</button></div>
                                     </div>
-                                    <h6 class="text-success">Envio gratis</h6>
-                                    <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Detalles</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Agregar al carro</button></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                   </ng-container>
                 </ng-container>
             </div>
         </div>

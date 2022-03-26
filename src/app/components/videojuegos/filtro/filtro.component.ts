@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filtro',
@@ -13,6 +13,9 @@ export class FiltroComponent implements OnInit {
   @Input() deportes: number; 
   @Input() disparos: number;
   @Input() peleas: number;
+  @Input() baile: number;
+  
+  @Output() radioChange = new EventEmitter<string>();
 
   radioSeleccionado: string = "todos";
 
@@ -23,8 +26,13 @@ export class FiltroComponent implements OnInit {
     this.deportes = 0;
     this.disparos = 0;
     this.peleas = 0;
+    this.baile = 0;
   }
 
   ngOnInit(): void { }
+
+  radioChangeEmmitter(): void {
+    this.radioChange.emit(this.radioSeleccionado);
+  }
 
 }

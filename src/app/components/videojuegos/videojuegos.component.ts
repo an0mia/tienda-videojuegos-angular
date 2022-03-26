@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Categoria } from 'src/app/models/Categoria';
+import { Component, Input, OnInit } from '@angular/core';
 import { Videojuego } from 'src/app/models/Videojuego';
+import { VideojuegosService } from 'src/app/services/videojuegos.service';
 
 @Component({
   selector: 'app-videojuegos',
@@ -9,30 +9,44 @@ import { Videojuego } from 'src/app/models/Videojuego';
 })
 export class VideojuegosComponent implements OnInit {
 
-  radioSeleccionado: string = "todos";
+  radioSeleccionado: string = "Todos";
+
+  @Input() videojuegos: Videojuego[] = [];
 
   listaVideojuegos: Videojuego[] = [
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
-    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: new Categoria},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Aventura'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Aventura'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Aventura'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Peleas'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Carreras'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Aventura'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Disparos'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Aventura'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Peleas'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Peleas'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Aventura'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Aventura'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Deportes'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Disparos'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Disparos'},
+    {id: 1, nombre: 'Donkey Kong Country', plataforma: 'Super Nintendo',precio: 9990, calificacion: 5, anio: '1990', url: 'https://i.ytimg.com/vi/ddGMF9kt2bM/hqdefault.jpg', categoria: 'Aventura'},
   ];
 
-  constructor() { }
+  constructor(private videjuegosService: VideojuegosService) { }
 
   ngOnInit(): void {
+  }
+
+  cargarVideojuegos(): void {
+    this.videjuegosService.getVideojuegos().subscribe(
+      (data) => {
+        this.listaVideojuegos = data.videojuegos;
+      }
+    );
+  }
+
+  radioChangeReceiver(radioSelec: string): void {
+    this.radioSeleccionado = radioSelec;
   }
 
   getTotalVidejuegos(): number {
@@ -40,7 +54,11 @@ export class VideojuegosComponent implements OnInit {
   }
 
   getTotalAventura(): number {
-    return this.listaVideojuegos.filter(vj => vj.categoria === 'aventura').length;
+    return this.listaVideojuegos.filter(vj => vj.categoria === 'Aventura').length;
+  }
+
+  getTotalBaile(): number {
+    return this.listaVideojuegos.filter(vj => vj.categoria === 'Baile').length;
   }
 
   getTotalCarreras(): number {
