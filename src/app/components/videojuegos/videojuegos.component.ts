@@ -40,7 +40,7 @@ export class VideojuegosComponent implements OnInit {
   cargarVideojuegos(): void {
     this.videjuegosService.getVideojuegos().subscribe(
       (data) => {
-        this.listaVideojuegos = data.videojuegos;
+        this.videojuegos = data.videojuegos;
       }
     );
   }
@@ -50,31 +50,31 @@ export class VideojuegosComponent implements OnInit {
   }
 
   getTotalVidejuegos(): number {
-    return this.listaVideojuegos.length;
+    return this.videojuegos.length;
   }
 
   getTotalAventura(): number {
-    return this.listaVideojuegos.filter(vj => vj.categoria === 'Aventura').length;
+    return this.videojuegos.filter(vj => vj.categoria === 'Aventura').length;
   }
 
   getTotalBaile(): number {
-    return this.listaVideojuegos.filter(vj => vj.categoria === 'Baile').length;
+    return this.videojuegos.filter(vj => vj.categoria === 'Baile').length;
   }
 
   getTotalCarreras(): number {
-    return this.listaVideojuegos.filter(vj => vj.categoria === 'Carreras').length;
+    return this.videojuegos.filter(vj => vj.categoria === 'Carreras').length;
   }
 
   getTotalDeportes(): number {
-    return this.listaVideojuegos.filter(vj => vj.categoria === 'Deportes').length;
+    return this.videojuegos.filter(vj => vj.categoria === 'Deportes').length;
   }
 
   getTotalDisparos(): number {
-    return this.listaVideojuegos.filter(vj => vj.categoria === 'Disparos').length;
+    return this.videojuegos.filter(vj => vj.categoria === 'Disparos').length;
   }
 
   getTotalPeleas(): number {
-    return this.listaVideojuegos.filter(vj => vj.categoria === 'Peleas').length;
+    return this.videojuegos.filter(vj => vj.categoria === 'Peleas').length;
   }
 
 }
