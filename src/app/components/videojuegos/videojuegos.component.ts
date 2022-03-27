@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { isEmpty } from 'rxjs';
 import { Videojuego } from 'src/app/models/Videojuego';
 import { VideojuegosService } from 'src/app/services/videojuegos.service';
 
@@ -40,8 +41,11 @@ export class VideojuegosComponent implements OnInit {
   constructor(private videjuegosService: VideojuegosService) { }
 
   ngOnInit(): void {
-    this.pagActual = 1;
+    if(this.videojuegos != null) {
+      this.pagActual = 1;
+    }
     this.cargarVideojuegos();
+    console.log(this.videojuegos);
    
   }
 
@@ -51,10 +55,12 @@ export class VideojuegosComponent implements OnInit {
         console.log(data);
         this.videojuegos = data.videojuego;
         this.cargaPaginado();
+
         this.cargaVideojuegosPorPagina();
       }
     );
   }
+
   cargaPaginado(){
     let videoJuegosPorCategoria:Videojuego[] = this.videojuegos;
     if(this.radioSeleccionado != "Todos"){
@@ -69,6 +75,7 @@ export class VideojuegosComponent implements OnInit {
       this.paginas.push(i);
     }
   }
+
   cargaVideojuegosPorPagina(){
 
     let videoJuegosPorCategoria:Videojuego[] = this.videojuegos;
@@ -99,7 +106,7 @@ export class VideojuegosComponent implements OnInit {
   }
  
 
-  getTotalVidejuegos(): number {
+  getTotalVideojuegos(): number {
     return this.videojuegos.length;
   }
 
