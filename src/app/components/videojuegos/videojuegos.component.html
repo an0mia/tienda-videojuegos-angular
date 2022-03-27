@@ -1,28 +1,24 @@
 <div class="container-fluid">
     <div class="container mt-5">
-        <app-filtro 
-            [todos]="getTotalVideojuegos()"
-            [baile]="getTotalBaile()"
-            [aventura]="getTotalAventura()"
-            [carreras]="getTotalCarreras()"
-            [deportes]="getTotalDeportes()"
-            [disparos]="getTotalDisparos()"
-            [peleas]="getTotalPeleas()"
-            (radioChange)="radioChangeReceiver($event)"
-        >
+        <app-filtro [todos]="getTotalVideojuegos()" [baile]="getTotalBaile()" [aventura]="getTotalAventura()"
+            [carreras]="getTotalCarreras()" [deportes]="getTotalDeportes()" [disparos]="getTotalDisparos()"
+            [peleas]="getTotalPeleas()" (radioChange)="radioChangeReceiver($event)">
         </app-filtro>
         <!-- Videojuegos -->
-        <div class="card">
+        <div class="card bg-light">
             <div class="card-footer text-center mb-3">
-                <h3>Titulos ({{ getTotalVideojuegos() }})</h3>
+                <h3>{{ radioSeleccionado }}</h3>
             </div>
             <div class="card-body">
                 <ng-container *ngFor="let vj of videojuegosPorPag">
-                   <ng-container *ngIf="radioSeleccionado == 'Todos' || radioSeleccionado == vj.categoria.nombreCategoria">
+                    <ng-container
+                        *ngIf="radioSeleccionado == 'Todos' || radioSeleccionado == vj.categoria.nombreCategoria">
                         <div class="row d-flex justify-content-center mb-3">
                             <div class="col-md-10">
                                 <div class="row p-2 bg-white border rounded">
-                                    <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="{{ vj.url }}"></div>
+                                    <div class="col-md-3 mt-1"><img
+                                            class="img-fluid img-responsive rounded product-image" src="{{ vj.url }}">
+                                    </div>
                                     <div class="col-md-6 mt-1">
                                         <h5>{{ vj.nombre }}</h5>
                                         <div class="d-flex flex-row">
@@ -31,45 +27,48 @@
                                                 <div class="ratings mr-2"><i class="fa fa-star"></i></div>
                                             </ng-container>
                                         </div>
-                                        <div class="mt-1 mb-1 spec-1"><span>{{ vj.plataforma }}</span><span class="dot"></span><span class="categoria">{{ vj.categoria.nombreCategoria}}</span></div>
+                                        <div class="mt-1 mb-1 spec-1"><span>{{ vj.plataforma }}</span><span
+                                                class="dot"></span><span class="categoria">{{
+                                                vj.categoria.nombreCategoria}}</span></div>
                                         <p class="text-justify text-truncate para mb-0">Lorem, ipsum dolor.</p>
                                     </div>
                                     <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                                         <div class="d-flex flex-row align-items-center">
-                                            <h4 class="mr-1">{{ vj.precio | currency   }}</h4>
+                                            <h4 class="mr-1">{{ vj.precio | currency }}</h4>
                                         </div>
                                         <h6 class="text-success">Envio gratis</h6>
-                                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Detalles</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Agregar al carro</button></div>
+                                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm"
+                                                type="button">Detalles</button><button
+                                                class="btn btn-outline-primary btn-sm mt-2" type="button">Agregar al
+                                                carro</button></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                   </ng-container>
+                    </ng-container>
                 </ng-container>
             </div>
-            <div class="row">
-                <div class="col-md-3"></div>
-                    <div class="col-md-3">
-                        <nav aria-label="Page navigation example">
+            <div class="card-footer">
+                <div class="container d-flex justify-content-around">
+                    <nav aria-label="Page navigation example">
                         <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" role="button" (click)="prevPag()" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li *ngFor="let pag of paginas">
-                            <a class="page-link" role="button" (click)="pagelink(pag)">{{pag}}</a>
-                        </li>
-                       
-                        <li class="page-item">
-                            <a class="page-link" role="button" (click)="nextPag()" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
+                            <li class="page-item">
+                                <a class="page-link" role="button" (click)="prevPag()" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li *ngFor="let pag of paginas">
+                                <a class="page-link" role="button" (click)="pagelink(pag)">{{pag}}</a>
+                            </li>
+    
+                            <li class="page-item">
+                                <a class="page-link" role="button" (click)="nextPag()" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
-                  </div>
-                  <div class="col-md-3"></div>
+                </div>
             </div>
         </div>
     </div>
