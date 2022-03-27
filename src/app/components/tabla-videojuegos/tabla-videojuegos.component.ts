@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Videojuego } from 'src/app/models/Videojuego';
+import { VideojuegosService } from 'src/app/services/videojuegos.service';
 
 @Component({
   selector: 'app-tabla-videojuegos',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TablaVideojuegosComponent implements OnInit {
 
-  constructor() { }
+  @Input() videojuegos: Videojuego[] = [];
+
+  constructor(private videojuegosService: VideojuegosService) { }
 
   ngOnInit(): void {
+    this.cargarVideojuegos();
+  }
+
+  cargarVideojuegos(): void {
+    this.videojuegosService.getVideojuegos().subscribe(
+      (data) => {
+        console.log(data);
+        this.videojuegos = data.videojuegos;
+      }
+    );
   }
 
 }
