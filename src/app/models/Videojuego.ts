@@ -8,9 +8,9 @@ export class Videojuego {
     anio: string;
     url: string;
     precio: number;
-    categoria: string;
+    categoria: Categoria;
     
-    constructor(id: number, nombre: string, plataforma: string, precio: number, calificacion: number, anio: string, url: string, categoria: string) {
+    constructor(id: number, nombre: string, plataforma: string, precio: number, calificacion: number, anio: string, url: string, categoria: Categoria) {
         this.id = id;
         this.nombre = nombre;
         this.plataforma = plataforma;
