@@ -10,6 +10,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TablaVideojuegosComponent } from './components/tabla-videojuegos/tabla-videojuegos.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     FiltroComponent,
     CarouselComponent,
     NosotrosComponent,
+    TablaVideojuegosComponent,
   ],
   imports: [
     BrowserModule,
