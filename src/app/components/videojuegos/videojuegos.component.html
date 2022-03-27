@@ -1,23 +1,24 @@
 <div class="container-fluid">
     <div class="container mt-5">
         <app-filtro 
-            [todos]="getTotalVidejuegos()"
+            [todos]="getTotalVideojuegos()"
             [baile]="getTotalBaile()"
             [aventura]="getTotalAventura()"
             [carreras]="getTotalCarreras()"
             [deportes]="getTotalDeportes()"
             [disparos]="getTotalDisparos()"
             [peleas]="getTotalPeleas()"
-            (radioChange)="radioChangeReceiver($event)">
+            (radioChange)="radioChangeReceiver($event)"
+        >
         </app-filtro>
         <!-- Videojuegos -->
         <div class="card">
             <div class="card-footer text-center mb-3">
-                <h3>Titulos ({{ getTotalVidejuegos() }})</h3>
+                <h3>Titulos ({{ getTotalVideojuegos() }})</h3>
             </div>
             <div class="card-body">
-                <ng-container *ngFor="let vj of videojuegos">
-                   <ng-container *ngIf="radioSeleccionado == 'Todos' || radioSeleccionado == vj.categoria">
+                <ng-container *ngFor="let vj of videojuegosPorPag">
+                   <ng-container *ngIf="radioSeleccionado == 'Todos' || radioSeleccionado == vj.categoria.nombreCategoria">
                         <div class="row d-flex justify-content-center mb-3">
                             <div class="col-md-10">
                                 <div class="row p-2 bg-white border rounded">
@@ -30,7 +31,7 @@
                                                 <div class="ratings mr-2"><i class="fa fa-star"></i></div>
                                             </ng-container>
                                         </div>
-                                        <div class="mt-1 mb-1 spec-1"><span>{{ vj.plataforma }}</span><span class="dot"></span><span class="categoria">{{ vj.categoria }}</span></div>
+                                        <div class="mt-1 mb-1 spec-1"><span>{{ vj.plataforma }}</span><span class="dot"></span><span class="categoria">{{ vj.categoria.nombreCategoria}}</span></div>
                                         <p class="text-justify text-truncate para mb-0">Lorem, ipsum dolor.</p>
                                     </div>
                                     <div class="align-items-center align-content-center col-md-3 border-left mt-1">
@@ -45,6 +46,30 @@
                         </div>
                    </ng-container>
                 </ng-container>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                    <div class="col-md-3">
+                        <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" role="button" (click)="prevPag()" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li *ngFor="let pag of paginas">
+                            <a class="page-link" role="button" (click)="pagelink(pag)">{{pag}}</a>
+                        </li>
+                       
+                        <li class="page-item">
+                            <a class="page-link" role="button" (click)="nextPag()" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        </ul>
+                    </nav>
+                  </div>
+                  <div class="col-md-3"></div>
             </div>
         </div>
     </div>
