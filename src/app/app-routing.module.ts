@@ -6,9 +6,9 @@ import { VideojuegosComponent } from './components/videojuegos/videojuegos.compo
 
 
 const routes: Routes = [
-  { path: '', component: CarouselComponent },
-  { path: 'videojuegos', component: VideojuegosComponent },
-  { path: 'nosotros', component: NosotrosComponent },
+  { path: 'Inicio', component: CarouselComponent },
+  { path: 'Videojuegos', component: VideojuegosComponent },
+  { path: 'Nosotros', component: NosotrosComponent },
   
   
 ];
