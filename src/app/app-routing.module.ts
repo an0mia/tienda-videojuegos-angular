@@ -10,7 +10,10 @@ const routes: Routes = [
   { path: '', component: CarouselComponent },
   { path: 'videojuegos', component: VideojuegosComponent },
   { path: 'nosotros', component: NosotrosComponent },
-  { path: 'admin', component:TablaVideojuegosComponent}
+  { path: 'admin', component:TablaVideojuegosComponent},
+  { path: 'inicio', component: CarouselComponent },
+  { path: 'videojuegos', component: VideojuegosComponent },
+  { path: 'nosotros', component: NosotrosComponent },
   
   
 ];
