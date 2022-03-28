@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-md-8 offset-md-2">
+            <div class="card bg-dark text-white">
+                <div class="card-header text-center">
+                    <h3>Formulario</h3>
+                    <hr>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <form>
+                            <div class="form-group mb-3">
+                              <label for="nombre">Nombre</label>
+                              <input id="nombre" type="text" class="form-control" formControlName="nombre" [(ngModel)]="videojuego.nombre" [ngClass]="{'is-invalid':submitted && f['nombre'].errors}">
+                            </div>
+                            <div class="form-group mb-3">
+                              <label for="plataforma">Plataforma</label>
+                              <input id="plataforma" type="text" class="form-control">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="calificacion">Calificación</label>
+                                <input id="calificacion" type="number" class="form-control">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="anio">Año</label>
+                                <input id="anio" type="text" class="form-control">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="url">URL imagen</label>
+                                <input id="url" type="text" class="form-control">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="precio">Precio</label>
+                                <input id="precio" type="number" class="form-control">
+                            </div>
+                            <div class="col text-center">
+                                <button type="submit" class="btn btn-lg btn-success m-1">Guardar</button>
+                                <button type="submit" class="btn btn-lg btn-danger m-1">Cancelar</button>
+                            </div>
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

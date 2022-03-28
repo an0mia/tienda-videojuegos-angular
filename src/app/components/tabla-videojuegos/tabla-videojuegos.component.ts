@@ -5,7 +5,6 @@ import { VideojuegosService } from 'src/app/services/videojuegos.service';
 @Component({
   selector: 'app-tabla-videojuegos',
   templateUrl: './tabla-videojuegos.component.html',
-  styleUrls: ['./tabla-videojuegos.component.css']
 })
 export class TablaVideojuegosComponent implements OnInit {
 
