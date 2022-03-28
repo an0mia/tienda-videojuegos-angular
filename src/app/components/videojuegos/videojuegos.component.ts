@@ -102,7 +102,7 @@ export class VideojuegosComponent implements OnInit {
     this.videojuegosService.getVideojuegoPorNombre(nombre).subscribe(
       (data) => {
         console.log(data);
-        this.videojuegos = data.videojuego;
+        this.videojuegos = data.videojuegos;
         this.cargaPaginado();
 
         this.cargaVideojuegosPorPagina();
