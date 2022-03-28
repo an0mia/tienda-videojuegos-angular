@@ -19,7 +19,7 @@ export class VideojuegosComponent implements OnInit {
 
   videojuegosPorPag: Videojuego[] = [];
 
-  constructor(private videjuegosService: VideojuegosService) { }
+  constructor(private videojuegosService: VideojuegosService) { }
 
   ngOnInit(): void {
     if(this.videojuegos != null) {
@@ -31,12 +31,11 @@ export class VideojuegosComponent implements OnInit {
   }
   
   cargarVideojuegos(): void {
-    this.videjuegosService.getVideojuegos().subscribe(
+    this.videojuegosService.getVideojuegos().subscribe(
       (data) => {
         console.log(data);
         this.videojuegos = data.videojuegos;
         this.cargaPaginado();
-
         this.cargaVideojuegosPorPagina();
       }
     );
