@@ -1,0 +1,8 @@
+.card-img-top{
+    border-radius: 50%;
+    height:80% ;
+    width: 80%;
+    margin-left: 2.5rem;
+    margin-top: 1rem;
+    border: 2px solid rgb(223, 210, 210);
+}

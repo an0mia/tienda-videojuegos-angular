@@ -84,6 +84,36 @@ export class VideojuegosComponent implements OnInit {
     this.cargaVideojuegosPorPagina();
 
   }
+
+  buscarJuego(busqueda: string){
+    console.log(busqueda);
+    this.radioSeleccionado = "Todos";
+    if(busqueda == null || busqueda.trim().length == 0){
+      this.videojuegos = [];
+      this.cargarVideojuegos();
+    }else{
+      this.videojuegos = [];
+      this.cargarVideojuegosPorNombre(busqueda);
+    }
+  }
+
+  cargarVideojuegosPorNombre(nombre: string): void {
+    
+    this.videojuegosService.getVideojuegoPorNombre(nombre).subscribe(
+      (data) => {
+        console.log(data);
+        this.videojuegos = data.videojuego;
+        this.cargaPaginado();
+
+        this.cargaVideojuegosPorPagina();
+      },
+      (error) => {
+        this.videojuegos = [];
+        this.cargaPaginado();
+        this.cargaVideojuegosPorPagina();
+      }
+    );
+  }
  
 
   getTotalVideojuegos(): number {

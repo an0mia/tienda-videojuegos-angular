@@ -28,6 +28,16 @@ export class VideojuegosService {
     );
   }
 
+  getVideojuegoPorNombre(nombre: string): Observable<any> {
+    return this.http.get<Videojuego>(`${this.urlEndPoint}/nombre/${nombre}`).pipe(
+      catchError(e => {
+        this.router.navigate([`/videojuegos`]);
+        console.log(e.error.mensaje);
+        return throwError(() => e);
+      }),
+    );
+  }
+
   createVidejuego(videojuego: Videojuego): Observable<any> {
     return this.http.post(this.urlEndPoint, videojuego, {headers: this.httpHeaders}).pipe(
       map((response: any) => response.videojuego as Videojuego),

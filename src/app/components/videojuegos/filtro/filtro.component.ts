@@ -16,8 +16,10 @@ export class FiltroComponent implements OnInit {
   @Input() baile: number;
   
   @Output() radioChange = new EventEmitter<string>();
+  @Output() buscarJuegoEvent = new EventEmitter<string>();
 
   radioSeleccionado: string = "todos";
+  search: string= '';
 
   constructor() { 
     this.todos = 0;
@@ -33,6 +35,10 @@ export class FiltroComponent implements OnInit {
 
   radioChangeEmmitter(): void {
     this.radioChange.emit(this.radioSeleccionado);
+  }
+
+  buscarJuego(){
+    this.buscarJuegoEvent.emit(this.search);
   }
 
 }

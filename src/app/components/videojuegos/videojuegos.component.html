@@ -2,7 +2,8 @@
     <div class="container mt-5">
         <app-filtro [todos]="getTotalVideojuegos()" [baile]="getTotalBaile()" [aventura]="getTotalAventura()"
             [carreras]="getTotalCarreras()" [deportes]="getTotalDeportes()" [disparos]="getTotalDisparos()"
-            [peleas]="getTotalPeleas()" (radioChange)="radioChangeReceiver($event)">
+            [peleas]="getTotalPeleas()" (radioChange)="radioChangeReceiver($event)"
+            (buscarJuegoEvent)="buscarJuego($event)">
         </app-filtro>
         <!-- Videojuegos -->
         <div class="card bg-light">

@@ -6,10 +6,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="container mb-3">
-                <input type="text" class="form-control form-control-lg" placeholder="Buscar titulo">
+            <div class="col-md-3"></div>
+            <div class="col-md-5">
+                <input type="search" id="form1" class="form-control" placeholder="Buscar Título"  [(ngModel)]="search" (keyup.enter)="buscarJuego()"/>
             </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" (click)="buscarJuego()">
+                   <i class="fas fa-search"></i>
+                </button>
+            </div>
+        
         </div>
+        <br>
         <div class="row">
             <div class="container text-center">
                 <div class="form-check form-check-inline m-1">
