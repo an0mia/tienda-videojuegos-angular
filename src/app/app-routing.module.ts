@@ -5,10 +5,13 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { VideojuegosComponent } from './components/videojuegos/videojuegos.component';
 
 
+
 const routes: Routes = [
   { path: 'Inicio', component: CarouselComponent },
   { path: 'Videojuegos', component: VideojuegosComponent },
   { path: 'Nosotros', component: NosotrosComponent },
+  
+  
   
   
 ];
